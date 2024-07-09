@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.graph_objects as go
+import st.plotly_chart as go
 from scipy.signal import savgol_filter, windows
 from scipy.fft import fft, fftfreq
 import os
