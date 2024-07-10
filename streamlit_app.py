@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-#import st.plotly_chart as go
+import plotly.graph_objects as go
 from scipy.signal import savgol_filter, windows
 from scipy.fft import fft, fftfreq
 import os
@@ -27,9 +27,9 @@ def remember_checkbox_state():
 
 # Define plots for all graphs
 def plot_graph(x, y, x_label, y_label, title, legend_labels):
-    fig = st.plotly_chart.Figure()
+    fig = go.Figure()
     for i, y_data in enumerate(y):
-        fig.add_trace(st.plotly_chart.Scatter(x=x[i], y=y_data, mode='lines', name=legend_labels[i]))
+        fig.add_trace(go.Scatter(x=x[i], y=y_data, mode='lines', name=legend_labels[i]))
     fig.update_layout(title=title, xaxis_title=x_label, yaxis_title=y_label)
     return fig
 
