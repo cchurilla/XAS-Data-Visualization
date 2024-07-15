@@ -42,7 +42,7 @@ def read_modify_files(file_paths, choices):
     for path in file_paths:
         with open(path, "r") as f:
             lines = f.readlines()
-        st.caption("Edge energy level from {file_path:")
+        st.caption("Edge energy level from file, {file_path}:")
         lines[2]
 
 
