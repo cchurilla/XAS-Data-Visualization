@@ -208,10 +208,6 @@ def main():
 
     st.button("Get help")
     if st.button:
-        st.markdown(
-        '<a href="\Users\Chloe\OneDrive\Documents\Documentation.pdf" target="_blank">Get help</a>',
-        unsafe_allow_html=True
-         )
             
     if uploaded_files:
         try:
