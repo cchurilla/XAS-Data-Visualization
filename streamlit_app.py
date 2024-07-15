@@ -42,8 +42,9 @@ def read_modify_files(file_paths, choices):
     for path in file_paths:
         with open(path, "r") as f:
             lines = f.readlines()
-        lines[2]
         st.caption("Energy level from file:")
+        lines[2]
+
 
     for path in file_paths:
         try:
