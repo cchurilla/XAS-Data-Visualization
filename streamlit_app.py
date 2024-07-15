@@ -198,7 +198,7 @@ def read_modify_files(file_paths, choices):
 def main():
     st.title("XAS Data Visualization")
 
-    uploaded_files = st.file_uploader("Upload your files", accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
 
     if uploaded_files:
         choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
@@ -210,7 +210,7 @@ def main():
             file_paths.append(file_path)
         
         remember_checkbox_state()
-
+        
         # Display checkboxes and add "All of the above" option
         st.write("Select which graphs to generate:")
         if st.checkbox("All graphs"):
