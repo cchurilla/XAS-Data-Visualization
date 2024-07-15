@@ -211,8 +211,8 @@ def main():
         st.button.markdown(
         '<a href="path/to/your/pdf/help_document.pdf" target="_blank">Get help</a>',
         unsafe_allow_html=True
-    
-    
+        )
+            
     if uploaded_files:
         try:
             choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
