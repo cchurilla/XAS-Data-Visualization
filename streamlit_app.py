@@ -216,11 +216,12 @@ def main():
             with open(file_path, "wb") as f:
                 f.write(uploaded_file.getbuffer())
             file_paths.append(file_path)
-         st.caption("When choosing a derivaitive graph, please also choose its non-derivative counterpart.")
+            
         remember_checkbox_state()
         
         # Display checkboxes and add "All of the above" option
         st.write("Select which graphs to generate:")
+        st.caption("When choosing a derivaitive graph, please also choose its non-derivative counterpart.")
         if st.checkbox("All graphs"):
             for key in checkbox_keys:
                 st.session_state[key] = True
