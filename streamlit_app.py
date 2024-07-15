@@ -9,7 +9,7 @@ import os
 # Define checkbox keys
 checkbox_keys = [
     "Fluorescence (Normalized)",
-    "Derivative of Normalized Fluorescence",
+    "Derivative of Fluorescence (Normalized)",
     "Fluorescence",
     "Transmission Sample",
     "Derivative of Transmission Sample",
@@ -202,20 +202,19 @@ def read_modify_files(file_paths, choices):
 #streamlit app 
 def main():
     st.title("XAS Data Visualization")
-    try:
-        uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
         
-    except Exception as e: 
-        st.write(f"Incorrect file type uploaded. Please try another file. {e}")
-
     if uploaded_files:
-        choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
-        file_paths = []
-        for uploaded_file in uploaded_files:
-            file_path = f"temp_{uploaded_file.name}"
-            with open(file_path, "wb") as f:
-                f.write(uploaded_file.getbuffer())
-            file_paths.append(file_path)
+        try:
+            choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
+            file_paths = []
+            for uploaded_file in uploaded_files:
+                file_path = f"temp_{uploaded_file.name}"
+                with open(file_path, "wb") as f:
+                    f.write(uploaded_file.getbuffer())
+                file_paths.append(file_path)
+        except Exception as e:
+            st.write("Incorrect file type. Please try another file. {e}")
             
         remember_checkbox_state()
         
