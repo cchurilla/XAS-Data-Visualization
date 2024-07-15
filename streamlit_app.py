@@ -207,10 +207,11 @@ def main():
     uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
 
     st.button("Get help")
-    st.button.markdown(
-    '<a href="path/to/your/pdf/help_document.pdf" target="_blank">Get help</a>',
-    unsafe_allow_html=True
-     )
+    if st.button:
+        st.markdown(
+        '<a href="path/to/your/pdf/help_document.pdf" target="_blank">Get help</a>',
+        unsafe_allow_html=True
+         )
             
     if uploaded_files:
         try:
