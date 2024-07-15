@@ -205,7 +205,8 @@ def read_modify_files(file_paths, choices):
 def main():
     st.title("XAS Data Visualization")
     uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
-        
+
+    st.button("Get help")
     if uploaded_files:
         try:
             choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
