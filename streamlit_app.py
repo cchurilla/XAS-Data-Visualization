@@ -206,7 +206,21 @@ def main():
     st.title("XAS Data Visualization")
     uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
 
-    st.button("Get help")
+    #st.button("Get help")
+    #if st.button:
+
+        # Provide a help button to open a PDF in a new tab
+    st.markdown(
+        """
+        <a href="C:\Users\Chloe\OneDrive\Documents\Documentation.pdf" target="_blank">
+            <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; text-align: center;">
+                Get help
+            </button>
+        </a>
+        """,
+        unsafe_allow_html=True
+    )
+    
     if uploaded_files:
         try:
             choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
