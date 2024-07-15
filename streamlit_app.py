@@ -222,6 +222,7 @@ def main():
         # Display checkboxes and add "All of the above" option
         st.write("Select which graphs to generate:")
         st.caption("When choosing a derivaitive graph, please also choose its non-derivative counterpart.")
+        st.caption("When choosing R-space, please also choose k-space.")
         if st.checkbox("All graphs"):
             for key in checkbox_keys:
                 st.session_state[key] = True
