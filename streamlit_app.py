@@ -76,7 +76,7 @@ def read_modify_files(file_paths, choices):
             if significant_change_indices.size > 0:
                 shoot_up_index = significant_change_indices[0]
                 shoot_up_energy = df['1_Energy'].iloc[shoot_up_index]
-                #st.write(f"Edge begins at energy level: {shoot_up_energy:.2f} eV")
+                ##st.write(f"Edge begins at energy level: {shoot_up_energy:.2f} eV")
             else:
                 shoot_up_energy = None
 
