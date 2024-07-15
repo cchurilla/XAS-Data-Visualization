@@ -197,8 +197,11 @@ def read_modify_files(file_paths, choices):
 #streamlit app 
 def main():
     st.title("XAS Data Visualization")
-
-    uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
+    try:
+        uploaded_files = st.file_uploader("Upload your raw data file(s)", accept_multiple_files=True)
+        
+    except Exception as e: 
+        st.write(f"Incorrect file type uploaded. Please try another file. {e}")
 
     if uploaded_files:
         choices = [i + 1 for i, key in enumerate(checkbox_keys) if st.session_state.get(key, False)]
