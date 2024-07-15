@@ -209,7 +209,7 @@ def main():
     st.button("Get help")
     if st.button:
         st.markdown(
-        '<a href="path/to/your/pdf/help_document.pdf" target="_blank">Get help</a>',
+        '<a href="C:\Users\Chloe\OneDrive\Documents\Documentation.pdf" target="_blank">Get help</a>',
         unsafe_allow_html=True
          )
             
