@@ -38,6 +38,11 @@ def read_modify_files(file_paths, choices):
     all_dfs = []
     legend_labels = []
     combined_plots = {}
+    
+    for path in file_paths:
+        with open(path, "r") as f:
+            lines = f.readlines()
+        lines[3]
 
     for path in file_paths:
         try:
