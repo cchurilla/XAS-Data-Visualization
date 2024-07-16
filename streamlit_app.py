@@ -8,9 +8,9 @@ import os
 
 # Define checkbox keys
 checkbox_keys = [
-    "Fluorescence (Normalized)",
-    "Derivative of Fluorescence (Normalized)",
-    "Fluorescence",
+    "Fluorescence Sample (Normalized)",
+    "Derivative of Fluorescence Sample (Normalized)",
+    "Fluorescence Sample",
     "Transmission Sample",
     "Derivative of Transmission Sample",
     "Transmission Foil",
@@ -85,27 +85,27 @@ def read_modify_files(file_paths, choices):
             df['Smoothed_Normalization'] = savgol_filter(df['Normalization'], window_length=60, polyorder=3)
             
             if 1 in choices:
-                if "Fluorescence (Normalized)" not in combined_plots:
-                    combined_plots["Fluorescence (Normalized)"] = {"x": [], "y": [], "labels": []}
-                combined_plots["Fluorescence (Normalized)"]["x"].append(df["1_Energy"])
-                combined_plots["Fluorescence (Normalized)"]["y"].append(df["Normalization"])
-                combined_plots["Fluorescence (Normalized)"]["labels"].append(path)
+                if "Fluorescence Sample (Normalized)" not in combined_plots:
+                    combined_plots["Fluorescence Sample (Normalized)"] = {"x": [], "y": [], "labels": []}
+                combined_plots["Fluorescence Sample (Normalized)"]["x"].append(df["1_Energy"])
+                combined_plots["Fluorescence Sample (Normalized)"]["y"].append(df["Normalization"])
+                combined_plots["Fluorescence Sample (Normalized)"]["labels"].append(path)
 
             if 2 in choices:
                 derivative = normalization_diff / energy_diff
                 df['derivative'] = np.append(derivative, np.nan)
-                if "Derivative of Normalized Fluorescence" not in combined_plots:
-                    combined_plots["Derivative of Normalized Fluorescence"] = {"x": [], "y": [], "labels": []}
-                combined_plots["Derivative of Normalized Fluorescence"]["x"].append(df["1_Energy"])
-                combined_plots["Derivative of Normalized Fluorescence"]["y"].append(df["derivative"])
-                combined_plots["Derivative of Normalized Fluorescence"]["labels"].append(path)
+                if "Derivative of Fluorescence Sample (Normalized)" not in combined_plots:
+                    combined_plots["Derivative of Fluorescence Sample (Normalized)"] = {"x": [], "y": [], "labels": []}
+                combined_plots["Derivative of Fluorescence Sample (Normalized)"]["x"].append(df["1_Energy"])
+                combined_plots["Derivative of Fluorescence Sample (Normalized)"]["y"].append(df["derivative"])
+                combined_plots["Derivative of Fluorescence Sample (Normalized)"]["labels"].append(path)
                 
             if 3 in choices:
-                if "Fluorescence" not in combined_plots:
-                    combined_plots["Fluorescence"] = {"x": [], "y": [], "labels": []}
-                combined_plots["Fluorescence"]["x"].append(df["1_Energy"])
-                combined_plots["Fluorescence"]["y"].append(df["10_flatot"])
-                combined_plots["Fluorescence"]["labels"].append(path)
+                if "Fluorescence Sample" not in combined_plots:
+                    combined_plots["Fluorescence Sample"] = {"x": [], "y": [], "labels": []}
+                combined_plots["Fluorescence Sample"]["x"].append(df["1_Energy"])
+                combined_plots["Fluorescence Sample"]["y"].append(df["10_flatot"])
+                combined_plots["Fluorescence Sample"]["labels"].append(path)
                 
             if 4 in choices:
                 df['data'] = df["7_mu01"]
